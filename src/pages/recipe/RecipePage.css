@@ -1,0 +1,14 @@
+li{
+    font-size: 18px;
+}
+
+.recipepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../pictures/ffff.png'); /* 背景圖片的路徑 */
+    background-size: cover; /* 讓背景圖片滿版填充容器 */
+    background-position: center; /* 將背景圖片置中 */
+    background-repeat: no-repeat; /* 防止重複顯示背景圖片 */
+  }

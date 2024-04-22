@@ -1,0 +1,19 @@
+.loginpage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 95vh; /* 垂直置中 */
+  justify-content: center;
+  background-image: url('../../../../pictures/ffff.png'); /* 背景圖片的路徑 */
+  background-size: cover; /* 讓背景圖片滿版填充容器 */
+  background-position: center; /* 將背景圖片置中 */
+  background-repeat: no-repeat; /* 防止重複顯示背景圖片 */
+}
+  
+  .login-form {
+    width: 300px; /* 設定表單寬度 */
+  }
+.login-buttons {
+    display: flex;
+    justify-content: space-between; /* 若要讓按鈕間距相等，可以使用 space-between */
+  }
