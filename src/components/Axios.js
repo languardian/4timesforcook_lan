@@ -1,9 +1,6 @@
 import axios from "axios"
 import { Navigate } from "react-router-dom"
 
-
-
-
 function Axios(){
   // const navigate = useNavigate()
   if (window.localStorage.getItem('jwt') === null){
@@ -12,7 +9,7 @@ function Axios(){
   let jwt = `Bearer ${(window.localStorage.getItem('jwt'))}`
   const res = axios.create(
     {
-      baseURL: 'https://6a84-1-174-137-189.ngrok-free.app/',
+      baseURL: 'https://fef1-1-174-120-9.ngrok-free.app/',
       timeout:10000,
       headers:{
         'ngrok-skip-browser-warning':'123',
@@ -38,6 +35,4 @@ function Axios(){
   );
   return res;
 }
-
-
 export default Axios

@@ -56,7 +56,7 @@ const Navbar = () => {
           <Menu.Item key="4" icon={<ExperimentOutlined />} onClick={() => { handleNavigation("/question", 1) }}>
             後測
           </Menu.Item>
-          <Menu.Item key="5" icon={<HeartOutlined />} onClick={() => { navigate("/") }}>
+          <Menu.Item key="5" icon={<HeartOutlined />} onClick={() => { navigate("/Member/HealthMange") }}>
             健康管理
           </Menu.Item>
           {jwtToken === 'None' || jwtToken === null?

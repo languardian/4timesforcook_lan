@@ -1,0 +1,66 @@
+.parent-container {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 100vh; /* 讓父容器充滿整個視窗 */
+}
+
+/* 子容器 */
+.health-container {
+  background-color: #fefdfd;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 150%;
+  max-width: 800px;
+  border-radius: 30px;
+  margin: 0 auto; /* 水平居中 */
+}
+  
+  .custom-table {
+    width: 100%; 
+    margin-bottom: 30px; 
+    font-size: 30px;
+  }
+  
+  .custom-table th, .custom-table td {
+    text-align: center; 
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    margin: 10px 0;
+  }
+  
+  .custom-button {
+    font-size: 20px;
+    padding: 10px 60px;
+    border-radius: 30px; 
+    border: none; 
+    cursor: pointer; 
+  }
+  .button-calories {
+    background-color: #ff6347;
+    color: #fff;
+    margin-left: 50px
+  }
+  
+  .button-water {
+    background-color: #16caee;
+    color: #fff;
+  }
+  
+  .button-exercise {
+    background-color: #f6c606bb; 
+    color: #fff;
+    margin-right: 50px;
+  }
+  
+  .custom-button:hover {
+    filter: brightness(90%); 
+  }
+  

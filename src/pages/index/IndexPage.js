@@ -35,6 +35,7 @@ const IndexPage = () => {
         console.log('API response:', response.data);
         if (response.status === 200) {
           window.localStorage.setItem('jwt', response.data.token);
+          window.location.reload()
           // message.success('登入成功', { style: { fontSize: '20px' } });
         }
       })
@@ -61,29 +62,26 @@ const IndexPage = () => {
       </Row>
 
       <Row gutter={[16, 40]} justify="center">
-        <Col xs={24} md={12}>
+        <Col xs={24} md={24}>
           <Link to="/Member/login">
             <Button type="primary" size='large' shape='round' icon={<LoginOutlined />} block>
               登入
             </Button>
           </Link>
         </Col>
-        <Col xs={24} md={12}>
+        <Col xs={24} md={12} style={{ marginTop: '12px' }}>
         <Link to="/Member/register">
           <Button type="default" size='large' shape='round' icon={<UserAddOutlined />} block>
             註冊
           </Button>
         </Link>
         </Col>
-      </Row>
-
-      <Row gutter={[16, 40]}>
-        <Col xs={24} md={24} style={{ marginTop: '24px' }}>
+        <Col xs={24} md={12} style={{ marginTop: '12px' }}>
           <Button size='large' shape='round' icon={<UserOutlined />} block onClick={handleGuestLogin}>
             訪客登入
           </Button>
         </Col>
-      </Row>      
+      </Row>  
 
       {/* Modal 组件 */}
       <Modal

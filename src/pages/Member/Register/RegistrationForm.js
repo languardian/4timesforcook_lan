@@ -118,10 +118,11 @@ const RegistrationForm = () => {
       setLoading(false);
     }
   };
+  const inputStyle = {
+    height: '31px', // 設置固定的輸入框高度
+  };
 
   return (
-
-
     <div style={{ position: 'relative' }}>
       {/* 背景圖片 */}
       <img src={backgroundImage} alt="Background" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: -1000 }} />
@@ -158,7 +159,7 @@ const RegistrationForm = () => {
                   },
                 ]}
               >
-                <Input />
+                <Input style={inputStyle} />
               </Form.Item>
             </Col>
             <Col span={12}>
@@ -190,7 +191,7 @@ const RegistrationForm = () => {
                   },
                 ]}
               >
-                <Input />
+                <Input style={inputStyle} />
               </Form.Item>
             </Col>
             <Col span={12}>
@@ -221,7 +222,7 @@ const RegistrationForm = () => {
                   },
                 ]}
               >
-                <Input />
+                <Input style={inputStyle} />
               </Form.Item>
             </Col>
             <Col span={12}>
@@ -235,7 +236,7 @@ const RegistrationForm = () => {
                   },
                 ]}
               >
-                <Input />
+                <Input style={inputStyle} />
               </Form.Item>
             </Col>
             <Col span={12}>

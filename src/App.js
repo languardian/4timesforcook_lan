@@ -12,9 +12,9 @@ import QuestionPage from './pages/Member/Ques/questions.js';
 //會員相關-登入、註冊
 import Loginpage from "./pages/Member/Login/Loginpage.js"
 import RegistrationForm from "./pages/Member/Register/RegistrationForm.js"
+import Healthmanage from './pages/Member/HealthManage/Healthmanage.js';
 //食譜
 import SearchPage from "./pages/recipe/search/SearchPage.js"
-import SearchResultPage from "./pages/recipe/result/SearchResultPage.js"
 import RecipePage from './pages/recipe/RecipePage.js';
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
           <Route path="/Recipe/result/:rid" element={<RecipePage />} />
 
           {/* 健康管理 */}
-          {/* <Route path="/Member/HealthMange" element={} /> */}
+          <Route path="/Member/HealthMange" element={<Healthmanage />} />
 
         </Routes>
       </BrowserRouter>

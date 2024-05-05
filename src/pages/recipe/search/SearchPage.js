@@ -7,6 +7,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import './SearchPage.css';
 import '../result/SearchResultPage.css';
 import PlaceholderLoading from 'react-placeholder-loading'
+import { Modal } from 'antd';
 
 // 我這邊搜尋結果有用placehoder套件，要注意！！
 // https://www.npmjs.com/package/react-placeholder-loading
@@ -16,30 +17,83 @@ function SearchPage() {
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchResult, setShowSearchResult] = useState(false); // 新增狀態來控制是否顯示搜尋結果
-
+  /**
+   * 處理使用者輸入句子
+   */
   const handleInputChange = e => {
     setInputValue(e.target.value);
   };
 
+  /**
+   * 處理標籤點擊
+   * @param {*} tag 
+   * @param {*} checked 
+   */
   const handleTagChange = (tag, checked) => {
     const nextSelectedTags = checked ?
       [...selectedTags, tag] :
       selectedTags.filter(t => t !== tag);
     setSelectedTags(nextSelectedTags);
+
   };
+
+  /**
+   * 依照所挑選的標籤進行分類
+   * @param {Array} selectedTags 
+   */
+  const checkTags = (selectedTags) => {
+    let res = []
+    let ob = {
+      // 時間
+        "15分鐘或更少":"15-minutes-or-less","30分鐘或更少":"30-minutes-or-less",
+        "60分鐘或更少":"60-minutes-or-less","60分鐘以上":"time-to-make",
+      // 料理
+        '日式':"japanese", '中式':'chinese', '韓式':'korean', 
+        '西班牙':'spain', '義式':'italian', '德式':'german', 
+        '墨西哥':'mexico',
+      //健康選擇
+        '不含酒精':'alcohol-free', '低卡路里':'low-calorie', '低蛋白':'low-protein', 
+        '高蛋白':'high-protein', '無麩質':'gluten-free', '低鈉':'low-sodium', '低膽固醇':'low-cholesterol'
+    }
+    for(let i =0; i < selectedTags.length ; i++){
+      const key = selectedTags[i];
+        const value = ob[key]; // 從物件中取得相應的值
+        if (value !== undefined) { // 確保鍵存在
+            res.push(value);
+        }
+    }
+    console.log(res)
+  
+    return res
+  }
 
   const handleSearch = async () => {
     const searchData = {
       tags: selectedTags,
       userInput: inputValue
-    };
+    }
+    if (inputValue.trim() === '') { // 檢查輸入框是否為空
+      Modal.warning({
+        title: '警告',
+        content: '請輸入想要吃的食物內容或是想法。',
+      });
+      return; // 阻止進一步執行
+    }
     try {
-      const response = await Axios().get('Recipe/example_output/', { params: searchData });
-      console.log('GET request successful:', response.data);
+
+      const response = await Axios().post('Recipe/get/',JSON.stringify({
+          "sentence":inputValue,
+          "user_params":checkTags(selectedTags)
+
+        }) );
+      alert("找到專屬你的食譜瞜!")
+      console.log('POST request successful:', response.data);
+      
       setSearchResults(response.data);
       setShowSearchResult(true);
       console.log(searchData);
     } catch (error) {
+      
       console.error('Error making GET request:', error);
     }
   };

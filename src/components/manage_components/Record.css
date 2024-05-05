@@ -1,0 +1,50 @@
+
+  
+  .record-container {
+    background-color: #fff; /* 设置 div 的背景颜色 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150%; /* 调整 div 的宽度 */
+    max-width: 800px; /* 设置最大宽度 */
+    border-radius: 30px; /* 添加圆角 */
+    margin-top: 0px; /* 向下移动的距离 */
+  }
+  .record-wrapper {
+    width: 800px;
+    margin: 0 auto;
+  }
+  
+  
+  .calories-info {
+    margin-left: 20px; /* 調整文字與圖片之間的距離 */
+  }
+  
+  .calories-row {
+    margin-bottom: 10px; /* 調整每行之間的距離 */
+    /* 添加其他適當的樣式 */
+  }
+  .water-info {
+    margin-left: 20px; /* 調整文字與圖片之間的距離 */
+  }
+  
+  .water-row {
+    margin-bottom: 10px; /* 調整每行之間的距離 */
+    /* 添加其他適當的樣式 */
+  }
+  .exercise-info {
+    margin-left: 20px; /* 調整文字與圖片之間的距離 */
+  }
+  
+  .exercise-row {
+    margin-bottom: 10px; /* 調整每行之間的距離 */
+    /* 添加其他適當的樣式 */
+  }
+  .bold {
+    font-weight: bold;
+  }
+  
+  .bigger {
+    font-size: 1.2em;
+    text-align: center;
+  }

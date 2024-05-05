@@ -26,7 +26,7 @@ function SearchResult({ searchResults }) {
         <div key={index} className="search-result-item">
           <div className="search-result-content">
             {/* 使用 Link 將連結導向到 RecipePage，並將食譜的 ID 傳遞為路由參數 */}
-            <Link to={`/Recipe/result/${item.rid}`}>{item.name}</Link>
+            <Link style={{fontSize: 'large'}} to={`/Recipe/result/${item.rid}`}>{item.name}</Link>
             <Divider />
             <p className="description">食譜介紹：</p>
             <p className="description">{item.description}</p>

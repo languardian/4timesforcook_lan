@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Card, Modal } from 'antd';
+import ReactPlayer from 'react-player/youtube';
 import diseasesData from './data/data.json';
 import nutritionData from './data/nutritionData.json';
 
 const cardStyle = {
   background: 'rgba(255, 255, 255, 1)',
-  marginBottom: '28px',
+  marginBottom: '18px',
   textAlign: 'center',
   fontFamily: '標楷體, sans-serif',
   border: '1px solid lightgray', // 將邊框改成淡色
   fontSize: '24px',
-  lineHeight: '28px', // 設置行高為 24px
+  lineHeight: '24px', // 設置行高為 24px
 };
 
 const DiseaseRelatedCard = () => {
@@ -105,10 +106,68 @@ const NutritionRelatedCard = () => {
   );
 };
 
+const VideoRelatedCard = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedVideoUrl, setSelectedVideoUrl] = useState(null);
+
+  const videoData = [
+    { title: 'Bert', url: 'https://www.youtube.com/watch?v=0_rP_qzj_5U' },
+    { title: '營養素', url: '' },              // 之後要換成營養素影片
+    { title: '慢性病介紹1', url: 'https://youtu.be/GIujqU6j9_c' },
+    { title: '慢性病介紹2', url: 'https://youtu.be/1OfM_w1Y8A0' },
+  ];
+
+  const handleCardClick = (index) => {
+    setSelectedVideoUrl(videoData[index].url);
+    setModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setModalVisible(false);
+    setSelectedVideoUrl(null);
+  };
+
+  return (
+    <Card 
+      title="相關影片" 
+      style={{ ...cardStyle, background: 'none', width: '80%', margin: 'auto' }}
+      headStyle={{ fontSize: '29px' }}
+    >
+      {videoData.map((video, index) => (
+        <Card.Grid 
+          key={index} 
+          style={{ ...cardStyle, background: 'none', width: '50%' }}
+          onClick={() => handleCardClick(index)}
+        >
+          {video.title}
+        </Card.Grid>
+      ))}
+
+      <Modal
+        title={`${videoData[selectedVideoUrl ? videoData.findIndex(v => v.url === selectedVideoUrl) : -1]?.title}影片`}
+        visible={modalVisible}
+        onCancel={handleModalClose}
+        footer={null}
+        width={800}
+      >
+        {selectedVideoUrl && (
+          <ReactPlayer 
+            url={selectedVideoUrl} 
+            controls 
+            width="100%" 
+            height="400px" 
+          />
+        )}
+      </Modal>
+    </Card>
+  );
+};
+
 const App = () => (
-  <div style={{ backgroundImage: `url(${require('../../../pictures/ffff.png')})`, backgroundSize: 'cover', height: '100vh'}}>
+  <div style={{ backgroundImage: `url(${require('../../../pictures/ffff.png')})`, backgroundSize: 'cover', height: '100vh' }}>
     <DiseaseRelatedCard />
     <NutritionRelatedCard />
+    <VideoRelatedCard /> {/* 新增相關影片的卡片 */}
   </div>
 );
 

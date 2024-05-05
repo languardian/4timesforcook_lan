@@ -1,0 +1,43 @@
+/* Recommend.css */
+.recommend-container {
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recipe {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  width: 200%;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe img {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.recipe-info {
+  flex-grow: 1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  
+}
+
+/* 按鈕樣式 */
+.next-button {
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 30px;
+  cursor: pointer;
+}
