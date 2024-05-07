@@ -46,18 +46,20 @@
   .button-calories {
     background-color: #ff6347;
     color: #fff;
-    margin-left: 50px
+    margin-right: 50px
   }
   
   .button-water {
     background-color: #16caee;
     color: #fff;
+    width: 23%
   }
   
   .button-exercise {
     background-color: #f6c606bb; 
     color: #fff;
-    margin-right: 50px;
+    margin-left: 50px;
+    width: 23%
   }
   
   .custom-button:hover {
