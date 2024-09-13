@@ -112,7 +112,7 @@ const VideoRelatedCard = () => {
 
   const videoData = [
     { title: 'Bert', url: 'https://www.youtube.com/watch?v=0_rP_qzj_5U' },
-    { title: '營養素', url: '' },              // 之後要換成營養素影片
+    // { title: '營養素', url: '' },              // 之後要換成營養素影片
     { title: '慢性病介紹1', url: 'https://youtu.be/GIujqU6j9_c' },
     { title: '慢性病介紹2', url: 'https://youtu.be/1OfM_w1Y8A0' },
   ];
@@ -136,7 +136,7 @@ const VideoRelatedCard = () => {
       {videoData.map((video, index) => (
         <Card.Grid 
           key={index} 
-          style={{ ...cardStyle, background: 'none', width: '50%' }}
+          style={{ ...cardStyle, background: 'none', width: '33.333%' }}
           onClick={() => handleCardClick(index)}
         >
           {video.title}

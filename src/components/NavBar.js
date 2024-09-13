@@ -38,8 +38,8 @@ const Navbar = () => {
   return (
     <Row justify="space-between">
       <Col>
-        <div style={{ color: 'white', fontSize: '20px' }}>
-          <Image width={150} preview={false} src={logo} />
+        <div style={{ color: 'white', fontSize: '24px' }}>
+          <Image width={190} preview={false} src={logo} />
         </div>
       </Col>
       <Col>
